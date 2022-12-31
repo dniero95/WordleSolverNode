@@ -1,6 +1,7 @@
 //  import module http
 const http = require('http');
-//  const fs = require('fs')
+// module for the filesystem
+const fs = require('fs');
 //  const express = require('express');
 
 const server = http.createServer((req, res) => {
@@ -10,20 +11,28 @@ const server = http.createServer((req, res) => {
    // the following line close the program if executed
    // process.exit();
    const url = req.url;
+   const method = req.method;
    if (url === '/') {
       res.write('<html>');
       res.write('<head><title>home</title></head>');
-      res.write('<body><h1>wordle solver</h1><form action="/message" method="POST"><input type="text" name="message"><button type="submit">send</button></form></body>')
+      res.write('<body><h1>wordle solver</h1><form action="/word" method="POST"><input type="text" name="word"><button type="submit">send</button></form></body>')
 
       res.write('</html>');
       
       return res.end();
    }
 
+   if (url ==='/word' && method === 'POST'){
+      fs.writeFileSync('word.txt', 'lorem ipsum');
+      res.statusCode = 302;
+      res.setHeader('Location', '/');
+      return res.end();
+   }
 
-   res.setHeader('Content-Type', 'text/html');
-   res.write('wordle solver');
-   res.end();
+
+   // res.setHeader('Content-Type', 'text/html');
+   // res.write('wordle solver');
+   // res.end();
 
 });
 
