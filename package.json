@@ -1,0 +1,21 @@
+{
+  "name": "wordlesolver",
+  "version": "0.0.1",
+  "description": "A solver for the game wordle",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app",
+    "start-server": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dniero95/WordleSolverNode.git"
+  },
+  "author": "Dario Niero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dniero95/WordleSolverNode/issues"
+  },
+  "homepage": "https://github.com/dniero95/WordleSolverNode#readme"
+}
