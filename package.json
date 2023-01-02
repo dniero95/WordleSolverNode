@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/dniero95/WordleSolverNode/issues"
   },
-  "homepage": "https://github.com/dniero95/WordleSolverNode#readme"
+  "homepage": "https://github.com/dniero95/WordleSolverNode#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
