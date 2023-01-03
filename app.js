@@ -1,4 +1,8 @@
 
+const wordRoutes = require('./routes/word');
+const docsRoutes = require('./routes/docs');
+const aboutRoutes = require('./routes/about');
+
 // import express
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -11,20 +15,10 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/about', (req, res, next)=>{
-   console.log('in the about middleware!');
-   res.send(`<h1>About wordle solver</h1>`);
-});
-app.use('/docs', (req, res, next)=>{
-   console.log('in documentation middleware!');
-   res.send('<h1>wordle solver docs</h1>')
-});
 
-app.use('/word', (req, res, next)=>{
-   console.log('in the /word middleware');
-   console.log(req.body);
-   res.redirect('/')
-});
+app.use(docsRoutes);
+app.use(aboutRoutes);
+app.use(wordRoutes);
 
 app.use('/', (req, res, next)=>{
    console.log('in home middleware!');
