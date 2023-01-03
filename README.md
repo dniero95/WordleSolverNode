@@ -11,3 +11,10 @@ The request is therefore:
  - Create a database containing the Italian dictionary, useful for solving the game
  - Create a Javascript software using node.js that accepts the "current situation" as input and proposes (i.e. returns as output) possible solutions (that is, words that could be correct)
  - Provide a user manual to simplify the first approach to employees
+
+ ## Approach to solution
+
+ 1. I create the app.js
+ 2. 
+
+ ## About Me

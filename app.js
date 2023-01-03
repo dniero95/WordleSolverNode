@@ -1,21 +1,28 @@
-//  import module http
-const http = require('http');
+
+// import express
 const express = require('express')
-const routes = require('./routes');
 
-
+// create the app
 const app = express();
-app.use((req, res, next)=>{
-   console.log('in a middleware!');
-   next();
+
+// routes
+
+app.use('/about', (req, res, next)=>{
+   console.log('in the about middleware!');
+   res.send('<h1>About wordle solver</h1>')
 });
-app.use((req, res, next)=>{
-   console.log('in another middleware!');
-   res.send('<h1>Add responce to wordle solver</h1>')
+app.use('/docs', (req, res, next)=>{
+   console.log('in documentation middleware!');
+   res.send('<h1>wordle solver docs</h1>')
 });
 
-const server = http.createServer(app);
+app.use('/', (req, res, next)=>{
+   console.log('in home middleware!');
+   res.send('<h1>wordle solver</h1>')
+});
 
-server.listen(3000, 'localhost', () => {
+
+
+app.listen(3000, 'localhost', () => {
    console.log('listening for requests on port 3000');
 });
