@@ -19,7 +19,8 @@ const app = express();
 // parser of the body
 
 app.use(bodyParser.urlencoded({extended: false}));
-
+// serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(docsRoutes);
 app.use(aboutRoutes);
