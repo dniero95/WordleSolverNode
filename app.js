@@ -3,6 +3,7 @@ const wordRoutes = require('./routes/word');
 const docsRoutes = require('./routes/docs');
 const aboutRoutes = require('./routes/about');
 const notFoundRoutes = require('./routes/404');
+const home = require('./routes/home');
 
 
 
@@ -23,19 +24,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(docsRoutes);
 app.use(aboutRoutes);
 app.use(wordRoutes);
-
-app.use('/home', (req, res, next)=>{
-   console.log('in home middleware!');
-   res.sendFile(path.join(__dirname,'views', 'index.html'));
-   
-   // res.send(`<h1>wordle solver</h1>
-   // <form action="/word" method="POST">
-   // <input type="text" name="word">
-   // <button type="submit">submit</button>
-   // </form>`);
-});
-
-
+app.use(home);
 app.use(notFoundRoutes);
 
 
