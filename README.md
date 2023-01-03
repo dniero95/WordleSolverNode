@@ -37,4 +37,5 @@ npm start
  1. I create the app.js
  2. 
 
+ - Create an home.js route that allow navigation to index.html
  ## About Me
