@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
     console.log('in home middleware!');
     
     try {
-        var words = fs.readFileSync('/Users/borgiak/coding/NodeProjects/WordleSolverNode/words.txt', 'utf8');
+        var words = fs.readFileSync(path.join(rootDir,'words.txt'), 'utf8');
       } catch (err) {
         console.error(err);
       }
