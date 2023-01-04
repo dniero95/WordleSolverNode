@@ -6,6 +6,7 @@ const rootDir = require('../util/path');
 
 
 
+
 router.post('/word', (req, res, next)=>{
     console.log('in the /word middleware');
     console.log(req.body);
@@ -17,6 +18,7 @@ router.post('/word', (req, res, next)=>{
       }
     words = words.split('\n');
     console.log(words);
+    module.exports.words = words;
     res.redirect('/')
  });
 
