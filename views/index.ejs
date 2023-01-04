@@ -109,7 +109,9 @@
       <h2 id="solutionsTitle">Soluzioni</h2>
       <div class="randomLettersCount">
         <ul id="solutionsUl">
-            <%= words %>
+            <% for(let index in words) {  %>
+                <li><%= words[index] %></li>
+            <% } %>
         </ul>
       </div>
     </div>

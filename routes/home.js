@@ -11,11 +11,10 @@ router.get('/', (req, res, next) => {
     
     try {
         var words = fs.readFileSync('/Users/borgiak/coding/NodeProjects/WordleSolverNode/words.txt', 'utf8');
-        console.log(words);
       } catch (err) {
         console.error(err);
       }
-    console.log(words);
+    words = words.split('\n');
     res.render('index', {words: words});
 });
 
