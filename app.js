@@ -14,6 +14,12 @@ const path = require('path');
 // create the app
 const app = express();
 
+// set templateting engine
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+ 
+
+
 // routes
 
 // parser of the body
