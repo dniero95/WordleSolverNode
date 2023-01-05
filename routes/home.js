@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
         console.error(err);
       }
     words = words.split('\n');
-    res.render('index', {words: words});
+    res.render('index', {words: words, pageTitle: "Home"});
 });
 
 module.exports = router;
