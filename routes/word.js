@@ -8,27 +8,42 @@ const filter = require('../util/filter');
 
 
 
-router.post('/word', (req, res, next)=>{
+router.post('/word', (req, res, next) => {
 
-    console.log('in the /word middleware');
-    console.log(req.body);
-    var gameStatus = 0;
-    // fs.writeFile('../word.txt', req.body.word);
-    try {
-        if(gameStatus === 0){
-          var words = fs.readFileSync(path.join(rootDir,'words.txt'), 'utf8');
-          gameStatus = 1;
-        }
-      } catch (err) {
-        console.error(err);
+  console.log('in the /word middleware');
+  console.log(req.body);
+  var gameStatus = 0;
+  // fs.writeFile('../word.txt', req.body.word);
+  try {
+    if (gameStatus === 0) {
+      var words = fs.readFileSync(path.join(rootDir, 'words.txt'), 'utf8');
+      gameStatus = 1;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+  words = words.split('\n');
+
+  //starts filter
+
+  for (let word in words) {
+    for (let index = 0; index < req.body.wrongLetters.length; index++) {
+      const letter = req.body.wrongLetters[index];
+      console.log(letter);
+      if (word.includes(letter)) {
+
       }
-    words = words.split('\n');
-    console.log(words);
+    }
+  }
+
+  // end filter
+
+  console.log(words);
 
 
-    module.exports.words = words;
-    res.redirect('/')
- });
+  module.exports.words = words;
+  res.redirect('/')
+});
 
 
- module.exports = router;
+module.exports = router;
