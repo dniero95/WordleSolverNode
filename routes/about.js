@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.use('/about', (req, res, next)=>{
     console.log('in the about middleware!');
-    res.sendFile(path.join(rootDir,'views', 'about.html'));
+    res.render('about', {pageTitle: "About"});
+    // res.sendFile(path.join(rootDir,'views', 'about.html'));
  });
 
  module.exports = router;

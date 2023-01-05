@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.use('/docs', (req, res, next)=>{
     console.log('in documentation middleware!');
-    res.sendFile(path.join(rootDir,'views', 'docs.html'));
+    res.render('docs', {pageTitle: "Documentation"});
+    // res.sendFile(path.join(rootDir,'views', 'docs.html'));
  });
 
  module.exports = router;
