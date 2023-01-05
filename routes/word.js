@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const rootDir = require('../util/path');
-const filter = require('../util/filter');
+// const filter = require('../util/filter');
 
 
 
@@ -26,11 +26,17 @@ router.post('/word', (req, res, next) => {
 
   //starts filter
 
+  const letter = req.body.wrongLetters[0];
   for (let word in words) {
     for (let index = 0; index < req.body.wrongLetters.length; index++) {
-      const letter = req.body.wrongLetters[index];
-      console.log(letter);
+      // console.log(letter);
       if (word.includes(letter)) {
+        // Use a revisitation of the following code in stack overflow
+        // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
+        const wordIndex = words.indexOf(word);
+        if (wordIndex > -1) { // only splice array when item is found
+          words.splice(wordIndex, 1); // 2nd parameter means remove one item only
+        }
 
       }
     }
